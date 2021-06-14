@@ -1,0 +1,29 @@
+
+<head>
+    <!-- share button -->
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5f2e597edcf87b001277c43f&product=sticky-share-buttons" async="async"></script>
+  <!-- end of share button-->
+</head>
+
+    {% include 'mdiary/nav.html' %}
+    <div class="col-sm-8">
+        <br>
+        <br>
+        <!-- Blog Post -->
+            <div class="card mb-4 mt-4" style="margin-left: 60px;">
+            <div class="card-body">
+                <h2 class="card-title" >{{ entry.diary_title|linebreaks }}</h2>
+                <p class="card-text">{{ entry.diary_editor }}</p>
+            </div>
+            <div class="card-footer text-muted">
+                Posted on {{entry.diary_time_created}}
+                <button type="button" class="btn  btn-lg btn-outline-warning"> <a href="{% url 'update' entry.pk %}">Edit</a></button>
+                <a type="button" class="btn-sm btn-outline-danger">{% include 'mdiary/delete.html' %}</a>
+                
+                
+            </div>
+            </div>
+
+    </div>
+    
+{% include 'mdiary/footer.html' %}

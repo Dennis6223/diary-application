@@ -1,0 +1,47 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+<!-- Button trigger modal -->
+  <!-- Modal -->
+  <button class="btn" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
+  <div class="modal fade" id="fm-modal-grid" tabindex="-1"
+       role="dialog" aria-labelledBy="fm-modal-grid"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-12 col-sm-6">
+                              <p>Are you sure you want to delete <strong>{{entry.diary_title}}</strong> </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+
+              <div class="modal-footer">
+                  <a href="{%  url 'entry-detail' entry.id %}" class="btn btn-primary">Cancel</a>
+                  <form method="POST" action="{% url 'delete' entry.pk %}">
+                    {% csrf_token %}
+                  <!-- Modal -->
+                  <button class="btn btn-danger" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
+                </form>
+                  
+  
+              </div>
+          </div>
+      </div>
+    </div>
